@@ -90,7 +90,7 @@ public class MainWindow extends JPanel {
         );
 
         this.listEmployees.add(newEmployee);
-        this.listModel.addElement(newEmployee.getName() + " (" + Integer.toString(newEmployee.getAge()) + ")");
+        this.listModel.addElement(newEmployee.getName() + " (" + newEmployee.getAge() + ")");
 
         FileHandler.writeJson(filepath, listEmployees.toArray());
         resetForm();
@@ -153,7 +153,7 @@ public class MainWindow extends JPanel {
         this.txtPw.setText("");
         this.txtMail.setText("");
 
-        boolean isLoggedIn = this.loggedIn == null ? false : true;
+        boolean isLoggedIn = this.loggedIn != null;
 
         this.btnAdd.setVisible(isLoggedIn);
         this.btnDel.setVisible(isLoggedIn);
@@ -179,7 +179,7 @@ public class MainWindow extends JPanel {
             } else {
                 Employee newEmployee = new Employee();
                 this.listEmployees.add(newEmployee);
-                this.listModel.addElement(newEmployee.getName() + " (" + Integer.toString(newEmployee.getAge()) + ")");
+                this.listModel.addElement(newEmployee.getName() + " (" + newEmployee.getAge() + ")");
 
                 FileHandler.writeJson(filepath, listEmployees.toArray());
                 JOptionPane.showMessageDialog(null, "Erster Start entdeckt: Defaultbenutzer angelegt.");
@@ -209,7 +209,7 @@ public class MainWindow extends JPanel {
             JOptionPane.showMessageDialog(null, "Keine gültige Emailadresse eingegeben!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        if(String.valueOf(txtPw.getPassword()).isEmpty() || String.valueOf(txtPw.getPassword()).length() < 5) {
+        if(String.valueOf(txtPw.getPassword()).length() < 5) {
             JOptionPane.showMessageDialog(null, "Es muss ein Passwort mit mindestens 5 Zeichen eingegeben werden!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
