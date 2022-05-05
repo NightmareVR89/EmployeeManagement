@@ -9,5 +9,5 @@ Demonstration of GUI creation and gson usage in Java for storing data locally
 - Delete Users
 
 ## Preinstalled dependencies
-- Bcrypt
-- GSon
+- [Bcrypt](https://mvnrepository.com/artifact/at.favre.lib/bcrypt/0.9.0)
+- [GSon](https://mvnrepository.com/artifact/com.google.code.gson/gson/2.9.0)
